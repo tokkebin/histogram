@@ -14,20 +14,20 @@ class histogram
         int occurranceofdigits[10];
         //konstruktory
         histogram();//domyslny
-        histogram(string text);//z parametrem
+        histogram(int occurranceofdigits[],string text);//z parametrem
         histogram(histogram &hist);//kopiujacy
 
         //destruktor
         ~histogram();
 
         //methods
-        int *counterevrydigit(string text); //wystapienia konkretnych cyfr
+        void counterevrydigit(int occurranceofdigits[], string text); //wystapienia konkretnych cyfr
         int getnumberofdigits;
 
         //operators
         bool operator ==(histogram &hist);
         bool operator !=(histogram &hist);
-        ostream& operator <<(ostream &os);
+        friend ostream& operator <<(ostream& os,const histogram &hist);
         histogram operator +(const histogram &hist);
 
         //public data
