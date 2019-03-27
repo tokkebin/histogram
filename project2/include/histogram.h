@@ -11,7 +11,7 @@ class histogram
 {
 
     public:
-        int *occurranceofdigits;
+        int occurranceofdigits[10];
         //konstruktory
         histogram();//domyslny
         histogram(string text);//z parametrem
@@ -21,14 +21,13 @@ class histogram
         ~histogram();
 
         //methods
-        int counteralldigits(string text); //wystapienie cyfr
         int *counterevrydigit(string text); //wystapienia konkretnych cyfr
         int getnumberofdigits;
 
         //operators
         bool operator ==(histogram &hist);
         bool operator !=(histogram &hist);
-        friend ostream& operator <<(ostream &os, const histogram &hist);
+        ostream& operator <<(ostream &os);
         histogram operator +(const histogram &hist);
 
         //public data

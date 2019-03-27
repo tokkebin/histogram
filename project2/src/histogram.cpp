@@ -24,22 +24,30 @@ histogram::histogram(string text)
 {
     //konstruktor
 
-    this->occurranceofdigits = counterevrydigit(text);
-    cout<<"constructor with parametr"<<endl;
+    int *p = new int[10];
+
+    p = counterevrydigit(text);
 
     for(int i=0;i<10;i++)
     {
+        cout<<p[i]<<endl;
+        occurranceofdigits[i]=p[i];
         cout<<this->occurranceofdigits[i]<<endl;
     }
+
+    cout<<"constructor with parametr"<<endl;
+
+
 
 }
 
 histogram::histogram(histogram& hist)
 {
     //konstruktor kopiujacy
-
-    this->occurranceofdigits = hist.occurranceofdigits;
-
+    for(int i=0;i<10;i++)
+    {
+        this->occurranceofdigits[i] = hist.occurranceofdigits[i];
+    }
 }
 
 histogram::~histogram()
@@ -49,25 +57,10 @@ histogram::~histogram()
     //destruktor
 }
 
-/*int histogram::counteralldigits(string text)
-{
-    //metoda liczaca wystapienia wszystkich cyfr
-
-    for( int i = 0; i < text.length(); ++i )
-    {
-        if (isdigit(text[i]))
-        {
-            numberofdigits++;
-        }
-
-    }
-
-    return numberofdigits;
-}*/
 
 int* histogram::counterevrydigit(string text)
 {
-    int occurrance[10];
+    int *occurrance=new int[10];
     for(int k=0;k<10;k++)
     {
         occurrance[k]=0;
@@ -122,6 +115,7 @@ int* histogram::counterevrydigit(string text)
     }*/
 
     return occurrance;
+    delete [] occurrance;
 
 }
 
@@ -149,7 +143,6 @@ bool operator==(histogram &hist, histogram &hist1)
 
 ostream& operator<<(ostream &os, const histogram &hist)
 {
-    os<<"Occurrance of number 0:"<<hist.occurranceofdigits[0]<<"Occurrance of number 1:"<<hist.occurranceofdigits[1]<<"Occurrance of number 2:"<<hist.occurranceofdigits[2]<<"Occurrance of number 3:"<<hist.occurranceofdigits[3]<<"Occurrance of number 4:"<<hist.occurranceofdigits[4]<<"Occurrance of number 5:"<<hist.occurranceofdigits[5]<<"Occurrance of number 6:"<<hist.occurranceofdigits[6]<<"Occurrance of number 7:"<<hist.occurranceofdigits[7]<<"Occurrance of number 8:"<<hist.occurranceofdigits[8]<<"Occurrance of number 9:"<<hist.occurranceofdigits[9];
-
+    os<<"Occurrance of number 0:"<<hist.occurranceofdigits[0]<<"Occurrance of number 1:"<<hist.occurranceofdigits[1]<<"Occurrance of number 2:"<<hist.occurranceofdigits[2]<<"Occurrance of number 3:"<<hist.occurranceofdigits[3]<<"Occurrance of number 4:"<<hist.occurranceofdigits[4]<<"Occurrance of number 5:"<<hist.occurranceofdigits[5]<<"Occurrance of number 6:"<<hist.occurranceofdigits[6]<<"Occurrance of number 7:"<<hist.occurranceofdigits[7]<<"Occurrance of number 8:"<<hist.occurranceofdigits[8]<<"Occurrance of number 9:"<<hist.occurranceofdigits[9]<<endl;
     return os;
 }

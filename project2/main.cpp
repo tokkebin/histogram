@@ -26,10 +26,8 @@ int main()
     }*/
 
     histogram hist(text);    //create histogram
-    for(int i=0;i<10;i++)
-    {
-            cout<<hist.occurranceofdigits[i]<<endl;
-    }
+
+
 
 
     return 0;
