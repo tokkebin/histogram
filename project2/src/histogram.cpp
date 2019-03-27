@@ -20,7 +20,7 @@ histogram::histogram()
     //konstruktor domyslny
 }
 
-histogram::histogram(string text)
+/*histogram::histogram(string text)
 {
     //konstruktor
 
@@ -39,7 +39,7 @@ histogram::histogram(string text)
 
 
 
-}
+}*/
 
 histogram::histogram(histogram& hist)
 {
