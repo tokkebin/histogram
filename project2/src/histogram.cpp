@@ -117,12 +117,22 @@ histogram histogram::operator+(const histogram &hist1)
 
 bool operator==(histogram &hist, histogram &hist1)
 {
-    if(hist1.occurranceofdigits==hist.occurranceofdigits)
+    for(int i=0;i<10;i++)
     {
-        return 1;
+        if(hist.occurranceofdigits[i]!=hist1.occurranceofdigits[i]) //szukamy chociaz jednej roznicy
+            return 0;
     }
-    else
-        return 0;
+    return 1;
+}
+
+bool operator!=(histogram &hist1, histogram &hist2)
+{
+    for(int i=0;i<10;i++)
+    {
+        if(hist1.occurranceofdigits[i]!=hist2.occurranceofdigits[i]) //szukamy chociaz jednej roznicy
+            return 1;
+    }
+    return 0;
 }
 
 ostream& operator<<(ostream& os, const histogram &hist)

@@ -14,7 +14,7 @@ class histogram
         int occurranceofdigits[10];
         //konstruktory
         histogram();//domyslny
-        histogram(int occurranceofdigits[],string text);//z parametrem
+        histogram(string text);//z parametrem
         histogram(histogram &hist);//kopiujacy
 
         //destruktor

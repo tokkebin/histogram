@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1553723574 source:c:\users\magdalena\documents\github\histogram\project2\main.cpp
+1553728917 source:c:\users\magdalena\documents\github\histogram\project2\main.cpp
 	<iostream>
 	"include/histogram.h"
 	<string>
@@ -8,7 +8,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1553724482 c:\users\magdalena\documents\github\histogram\project2\include\histogram.h
+1553728414 c:\users\magdalena\documents\github\histogram\project2\include\histogram.h
 	<iostream>
 	<string>
 	<fstream>

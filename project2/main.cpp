@@ -16,15 +16,20 @@ int main()
     histogram histo;    //create histogram
 
     cout<<"Write text:"<<endl;
-    //getline(cin,text); //a co w przypadku roznych dlugosci wpisywanego tekstu ?? moze lepiej vector ??
-
     text.clear();
     cin>>text;
     all.append(text);
     cout<<"Whole text:"<<all<<endl;
-
     histo.counterevrydigit(histo.occurranceofdigits,all);
+    cout<<histo<<endl;
 
+    //aktualizacja histogramu
+    cout<<"Write text for editing histogram:"<<endl;
+    text.clear();
+    cin>>text;
+    all.append(text);
+    cout<<"Whole text:"<<all<<endl;
+    histo.counterevrydigit(histo.occurranceofdigits,all);
     cout<<histo<<endl;
 
     while(1)
@@ -38,37 +43,42 @@ int main()
         switch(i)
         {
         case 1:
-            histogram hist;
-            string text1;
-            cout<<"Write text:"<<endl;
-            cin>>text1;
-            hist.counterevrydigit(hist.occurranceofdigits,text1);
-            cout<<"New histogram:"<<endl<<hist<<endl;
+            {
+                histogram hist;
+                string text1;
+                cout<<"Write text:"<<endl;
+                cin>>text1;
+                hist.counterevrydigit(hist.occurranceofdigits,text1);
+                cout<<"New histogram:"<<endl<<hist<<endl;
+            }
             break;
         case 2:
-            cout<<"Write text:"<<endl;
-            //text.clear(); //czyszczenie stringa
-            string tekscik
-            cin>>tekscik;
-            //all.append(text); //dodajemy do calego tekstu
-            //cout<<"Whole text:"<<all<<endl;
-            histo.counterevrydigit(histo.occurranceofdigits,tekscik); //aktualizacja
-            cout<<"Edit histogram:"<<endl<<histo;
+            {
+                cout<<"Write text:"<<endl;
+                string tekscik;
+                cin>>tekscik;
+                histo.counterevrydigit(histo.occurranceofdigits,tekscik); //aktualizacja
+                cout<<"Edit histogram:"<<endl<<histo;
+            }
             break;
         case 3:
-            histogram hist1;
-            string textnew;
-            cout<<"Write text:"<<endl;
-            cin>>textnew;
-            hist1.counterevrydigit(hist1.occurranceofdigits,textnew);
-            cout<<"New histogram:"<<endl<<hist1<<endl;
+            {
+                histogram hist1; //pierwszy histogram
+                string textnew;
+                cout<<"Write first text:"<<endl;
+                cin>>textnew;
+                hist1.counterevrydigit(hist1.occurranceofdigits,textnew);
+                cout<<"New histogram:"<<endl<<hist1<<endl;
 
-            histogram hist2;
-            textnew.clear();
-            cout<<"Write text:"<<endl;
-            cin>>text1;
-            hist.counterevrydigit(hist.occurranceofdigits,text1);
-            cout<<"New histogram:"<<endl<<hist<<endl;
+                histogram hist2; //drugi histogram
+                textnew.clear();
+                cout<<"Write second text:"<<endl;
+                cin>>textnew;
+                hist2.counterevrydigit(hist2.occurranceofdigits,textnew);
+                cout<<"New histogram:"<<endl<<hist2<<endl;
+
+                bool x = (hist1==hist2);
+            }
             break;
 
         }
