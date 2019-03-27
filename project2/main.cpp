@@ -1,18 +1,36 @@
 #include <iostream>
+#include "include/histogram.h"
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace std;
 
 int main()
 {
+    string text;
+
     cout<<"Write text:"<<endl;
-    cin>>text; //a co w przypadku roznych dlugosci wpisywanego tekstu ?? moze lepiej vector ??
-    if(!cin)//obsluga bledoow
+    getline(cin,text); //a co w przypadku roznych dlugosci wpisywanego tekstu ?? moze lepiej vector ??
+
+    cout<<text<<endl;
+    /*if(!cin)//obsluga bledoow
     {
         while(!cin)
             {
-                count<<"Incorrectly entered data. Please, write again:"<<endl;
+                cout<<"Incorrectly entered data. Please, write again:"<<endl;
                 cin>>text;
             }
+    }*/
+
+    histogram hist(text);    //create histogram
+    for(int i=0;i<10;i++)
+    {
+            cout<<hist.occurranceofdigits[i]<<endl;
     }
+
+
     return 0;
 }

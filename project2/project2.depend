@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1553714677 source:c:\users\magdalena\documents\github\histogram\project2\main.cpp
+	<iostream>
+	"include/histogram.h"
+	<string>
+	<iostream>
+	<sstream>
+	<stdio.h>
+	<stdlib.h>
+
+1553713563 c:\users\magdalena\documents\github\histogram\project2\include\histogram.h
+	<iostream>
+	<string>
+	<fstream>
+
+1553714482 source:c:\users\magdalena\documents\github\histogram\project2\src\histogram.cpp
+	"histogram.h"
+	<iostream>
+	<string>
+	<sstream>
+	<stdio.h>
+	<stdlib.h>
+

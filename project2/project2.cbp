@@ -34,7 +34,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="histogram.h" />
 		<Unit filename="include/histogram.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/histogram.cpp" />
