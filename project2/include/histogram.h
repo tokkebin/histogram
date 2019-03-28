@@ -25,8 +25,8 @@ class histogram
         int getnumberofdigits;
 
         //operators
-        bool operator ==(histogram &hist);
-        bool operator !=(histogram &hist);
+        friend bool operator ==(histogram &hist, histogram &hist1);
+        friend bool operator !=(histogram &hist, histogram &hist1);
         friend ostream& operator <<(ostream& os,const histogram &hist);
         histogram operator +(const histogram &hist);
 

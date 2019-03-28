@@ -77,11 +77,9 @@ int main()
                 hist2.counterevrydigit(hist2.occurranceofdigits,textnew);
                 cout<<"New histogram:"<<endl<<hist2<<endl;
 
-                bool x = (&hist1==&hist2); //identycznosc
-                bool y = (&hist1!=&hist2); //roznosc
 
-                cout<<"Result ==:"<<x<<endl;
-                cout<<"Result !=:"<<y<<endl;
+                cout<<"Result ==:"<<(hist1==hist2)<<endl; //identycznosc
+                cout<<"Result !=:"<<(hist1!=hist2)<<endl; //roznosc
             }
             break;
         case 4:
@@ -100,7 +98,7 @@ int main()
                 h2.counterevrydigit(h2.occurranceofdigits,t1);
                 cout<<"New histogram:"<<endl<<h2<<endl;
 
-                //histogram h3 = &h1 + &h2;
+                //histogram h3 = const &h1 + const &h2;
             }
             break;
 

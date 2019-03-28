@@ -120,9 +120,9 @@ bool operator==(histogram &hist, histogram &hist1)
     for(int i=0;i<10;i++)
     {
         if(hist.occurranceofdigits[i]!=hist1.occurranceofdigits[i]) //szukamy chociaz jednej roznicy
-            return 0;
+            return false;
     }
-    return 1;
+    return true;
 }
 
 bool operator!=(histogram &hist1, histogram &hist2)
@@ -130,13 +130,23 @@ bool operator!=(histogram &hist1, histogram &hist2)
     for(int i=0;i<10;i++)
     {
         if(hist1.occurranceofdigits[i]!=hist2.occurranceofdigits[i]) //szukamy chociaz jednej roznicy
-            return 1;
+            return true;
+
     }
-    return 0;
+    return false;
 }
 
 ostream& operator<<(ostream& os, const histogram &hist)
 {
-    os<<"Occurrance of number 0: "<<hist.occurranceofdigits[0]<<"Occurrance of number 1: "<<hist.occurranceofdigits[1]<<"Occurrance of number 2:"<<hist.occurranceofdigits[2]<<"Occurrance of number 3:"<<hist.occurranceofdigits[3]<<"Occurrance of number 4:"<<hist.occurranceofdigits[4]<<"Occurrance of number 5:"<<hist.occurranceofdigits[5]<<"Occurrance of number 6:"<<hist.occurranceofdigits[6]<<"Occurrance of number 7:"<<hist.occurranceofdigits[7]<<"Occurrance of number 8:"<<hist.occurranceofdigits[8]<<"Occurrance of number 9:"<<hist.occurranceofdigits[9]<<endl;
+    os<<"Occurrance of number 0: "<<hist.occurranceofdigits[0]<<endl;
+    os<<"Occurrance of number 1: "<<hist.occurranceofdigits[1]<<endl;
+    os<<"Occurrance of number 2: "<<hist.occurranceofdigits[2]<<endl;
+    os<<"Occurrance of number 3: "<<hist.occurranceofdigits[3]<<endl;
+    os<<"Occurrance of number 4: "<<hist.occurranceofdigits[4]<<endl;
+    os<<"Occurrance of number 5: "<<hist.occurranceofdigits[5]<<endl;
+    os<<"Occurrance of number 6: "<<hist.occurranceofdigits[6]<<endl;
+    os<<"Occurrance of number 7: "<<hist.occurranceofdigits[7]<<endl;
+    os<<"Occurrance of number 8: "<<hist.occurranceofdigits[8]<<endl;
+    os<<"Occurrance of number 9: "<<hist.occurranceofdigits[9]<<endl;
     return os;
 }
