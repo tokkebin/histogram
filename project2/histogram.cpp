@@ -9,37 +9,17 @@ using namespace std;
 
 histogram::histogram()
 {
-    //int occurranceofdigits[10];
+
 
     for(int i=0;i<10;i++)
     {
             this->occurranceofdigits[i] = 0; //zerowanie tablicy
+            this->frequency[i]=0;
     }
 
     cout<<"Default constructor"<<endl;
     //konstruktor domyslny
 }
-
-/*histogram::histogram(string text)
-{
-    //konstruktor
-
-    int *p = new int[10];
-
-    p = counterevrydigit(this->occurranceofdigits[],text);
-
-    for(int i=0;i<10;i++)
-    {
-
-        this->occurranceofdigits[i]=p[i];
-        cout<<this->occurranceofdigits[i]<<endl;
-    }
-
-    cout<<"constructor with parametr"<<endl;
-
-
-
-}*/
 
 histogram::histogram(histogram& hist)
 {
@@ -47,6 +27,7 @@ histogram::histogram(histogram& hist)
     for(int i=0;i<10;i++)
     {
         this->occurranceofdigits[i] = hist.occurranceofdigits[i];
+        this->frequency[i]=hist.frequency[i];
     }
 }
 
@@ -103,16 +84,37 @@ void histogram::counterevrydigit(int occurranceofdigits[], string text)
 
 }
 
-histogram histogram::operator+(const histogram &hist1)
+void histogram::counterfrequency(float frequency[],int occurranceofdigits[], string text)
+{
+    int len = text.size();
+    cout<<"dlugosc:"<<len<<endl;
+    for(int i=0;i<10;i++)
+    {
+        frequency[i] = (float)occurranceofdigits[i]/len;
+    }
+}
+
+histogram histogram::operator+(const histogram &hist2)
 {
     histogram hist;
     //hist.numberofdigits = numberofdigits + hist1.numberofdigits;
     for(int i=0;i<10;i++)
     {
-        hist.occurranceofdigits[i] = this->occurranceofdigits[i] + hist1.occurranceofdigits[i];
+        hist.occurranceofdigits[i] = this->occurranceofdigits[i] + hist2.occurranceofdigits[i];
+        hist.frequency[i] = this->frequency[i] + hist2.frequency[i];
     }
 
     return hist;
+}
+
+void histogram::operator+=(const histogram &hist1)
+{
+    for(int i=0;i<10;i++)
+    {
+        this->occurranceofdigits[i]+=hist1.occurranceofdigits[i];
+        this->frequency[i]+=hist1.frequency[i];
+    }
+
 }
 
 bool operator==(histogram &hist, histogram &hist1)
@@ -138,15 +140,15 @@ bool operator!=(histogram &hist1, histogram &hist2)
 
 ostream& operator<<(ostream& os, const histogram &hist)
 {
-    os<<"Occurrance of number 0: "<<hist.occurranceofdigits[0]<<endl;
-    os<<"Occurrance of number 1: "<<hist.occurranceofdigits[1]<<endl;
-    os<<"Occurrance of number 2: "<<hist.occurranceofdigits[2]<<endl;
-    os<<"Occurrance of number 3: "<<hist.occurranceofdigits[3]<<endl;
-    os<<"Occurrance of number 4: "<<hist.occurranceofdigits[4]<<endl;
-    os<<"Occurrance of number 5: "<<hist.occurranceofdigits[5]<<endl;
-    os<<"Occurrance of number 6: "<<hist.occurranceofdigits[6]<<endl;
-    os<<"Occurrance of number 7: "<<hist.occurranceofdigits[7]<<endl;
-    os<<"Occurrance of number 8: "<<hist.occurranceofdigits[8]<<endl;
-    os<<"Occurrance of number 9: "<<hist.occurranceofdigits[9]<<endl;
+    os<<"Occurrance of number 0: "<<hist.occurranceofdigits[0]<<" and frequency:"<<hist.frequency[0]<<endl;
+    os<<"Occurrance of number 1: "<<hist.occurranceofdigits[1]<<" and frequency:"<<hist.frequency[1]<<endl;
+    os<<"Occurrance of number 2: "<<hist.occurranceofdigits[2]<<" and frequency:"<<hist.frequency[2]<<endl;
+    os<<"Occurrance of number 3: "<<hist.occurranceofdigits[3]<<" and frequency:"<<hist.frequency[3]<<endl;
+    os<<"Occurrance of number 4: "<<hist.occurranceofdigits[4]<<" and frequency:"<<hist.frequency[4]<<endl;
+    os<<"Occurrance of number 5: "<<hist.occurranceofdigits[5]<<" and frequency:"<<hist.frequency[5]<<endl;
+    os<<"Occurrance of number 6: "<<hist.occurranceofdigits[6]<<" and frequency:"<<hist.frequency[6]<<endl;
+    os<<"Occurrance of number 7: "<<hist.occurranceofdigits[7]<<" and frequency:"<<hist.frequency[7]<<endl;
+    os<<"Occurrance of number 8: "<<hist.occurranceofdigits[8]<<" and frequency:"<<hist.frequency[8]<<endl;
+    os<<"Occurrance of number 9: "<<hist.occurranceofdigits[9]<<" and frequency:"<<hist.frequency[9]<<endl;
     return os;
 }
